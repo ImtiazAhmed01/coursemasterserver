@@ -10,7 +10,10 @@ const Assignment = require('./src/models/Assignment');
 const Quiz = require('./src/models/Quiz');
 const QuizQuestion = require('./src/models/QuizQuestion');
 const bcrypt = require('bcryptjs');
-const { v4: uuidv4 } = require('uuid');
+const uuidv4 = (...args) => import('uuid').then(({ v4 }) => v4(...args));
+
+const id = await uuidv4();
+
 
 (async () => {
     try {
